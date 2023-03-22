@@ -35,7 +35,8 @@ class GoogleAuthController extends Controller
 
             return redirect('home');
         } catch (\Exception $e) {
-            echo 'error';
+            alert()->error('Error Authenticate')->persistent('ok');
+            return redirect('login');
         }
     }
 }

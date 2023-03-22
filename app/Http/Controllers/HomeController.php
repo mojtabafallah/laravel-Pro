@@ -23,8 +23,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        alert()->success("hello",'this is a test')
-        ->persistent('Ok');
+        alert()->success("سلام این یک تست است",'عنوان')
+        ->persistent('بسیار خب');
         return view('home');
     }
 }

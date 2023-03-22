@@ -6,3 +6,8 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+@import "vazirmatn/Vazirmatn-font-face.css";
+body {
+    font-family: Vazirmatn, sans-serif;
+}
