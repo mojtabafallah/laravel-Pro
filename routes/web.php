@@ -29,4 +29,6 @@ Route::get('/secret', function () {
 
 Route::get('profile', [\App\Http\Controllers\profileController::class, 'index'])->name('profile');
 Route::get('profile/twofactor',[\App\Http\Controllers\profileController::class,'manageTwoFactor'])->name('twoFactor');
+Route::post('profile/twofactor',[\App\Http\Controllers\profileController::class,'handelManageTwoFactor'])->name('handelTwoFactor');
+
 

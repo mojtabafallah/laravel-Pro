@@ -16,4 +16,14 @@ class profileController extends Controller
     {
         return view('profile.two-factor-auth');
     }
+
+    public function handelManageTwoFactor(Request $request)
+    {
+        $request->validate([
+            'type' => 'required|in:sms,off',
+            'phone' => 'required_unless:type,off'
+        ]);
+
+        dd($request->post());
+    }
 }
