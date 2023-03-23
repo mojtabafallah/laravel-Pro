@@ -27,3 +27,6 @@ Route::get('/secret', function () {
     return 'secret';
 })->middleware(['auth', 'password.confirm']);
 
+Route::get('profile', [\App\Http\Controllers\profileController::class, 'index'])->name('profile');
+Route::get('profile/twofactor',[\App\Http\Controllers\profileController::class,'manageTwoFactor'])->name('twoFactor');
+
