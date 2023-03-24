@@ -19,11 +19,21 @@ class profileController extends Controller
 
     public function handelManageTwoFactor(Request $request)
     {
-        $request->validate([
+        $data = $request->validate([
             'type' => 'required|in:sms,off',
             'phone' => 'required_unless:type,off'
         ]);
 
-        dd($request->post());
+        if ($data['type'] === 'sms') {
+            //validation phone number
+        }
+
+        if ($data['type'] === 'off') {
+            $request->user()->update([
+                'two_factor_type' => 'off'
+            ]);
+        }
+
+        return back();
     }
 }

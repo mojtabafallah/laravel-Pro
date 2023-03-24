@@ -24,8 +24,9 @@
                                 <div class="col">
                                     <label for="type" class="form-label">Type</label>
                                     <select name="type" id="type" class="form-select">
-                                        <option value="off">Off</option>
-                                        <option value="sms">SMS</option>
+                                        @foreach(config('twofactor.types') as $key => $type)
+                                            <option {{ old('type') == $key || auth()->user()->hasTwoFactor($key)  ? 'selected' : '' }} value="{{$key}}">{{$type}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
@@ -34,7 +35,8 @@
                                 <div class="col">
                                     <label for="phone">Phone</label>
                                     <input type="text" name="phone" id="phone" class="form-control"
-                                           placeholder="Please Enter Phone...">
+                                           placeholder="Please Enter Phone..."
+                                           value="{{ old('phone') ?? auth()->user()->phone_number}}">
                                 </div>
                             </div>
 
